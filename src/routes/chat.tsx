@@ -4,7 +4,7 @@ import { AppShell } from "@/components/layout/AppShell";
 import { api } from "@/lib/api";
 
 export const Route = createFileRoute("/chat")({
-  head: () => ({ meta: [{ title: "Tutor Chat — StudySmart" }] }),
+  head: () => ({ meta: [{ title: "Tutor Chat — StudySense AI" }] }),
   component: ChatPage,
 });
 
