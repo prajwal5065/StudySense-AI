@@ -59,7 +59,7 @@ function ChatPage() {
       <div className="mt-3 flex gap-2">
         <input value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && send()}
           placeholder="Ask…" className="flex-1 border rounded px-3 py-2 text-sm" />
-        <button onClick={send} disabled={busy} className="px-4 py-2 bg-slate-900 text-white rounded disabled:opacity-50">{busy ? "…" : "Send"}</button>
+        <button onClick={send} disabled={busy} aria-label="Send message" className="px-4 py-2 bg-slate-900 text-white rounded disabled:opacity-50">{busy ? "…" : "Send"}</button>
       </div>
     </AppShell>
   );
