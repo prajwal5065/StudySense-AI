@@ -33,7 +33,7 @@ app.add_middleware(
 
 
 @app.get("/")
-def root():
+def root() -> dict:
     return {
         "name": "StudySense AI API",
         "ok": True,
