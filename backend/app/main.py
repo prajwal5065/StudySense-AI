@@ -46,3 +46,9 @@ for r in (documents.router, graph.router, topics.router, questions.router, formu
           predict.router, quiz.router, planner.router, progress.router,
           chat.router, revision.router, analytics.router):
     app.include_router(r)
+
+
+@app.get("/health")
+def health() -> dict:
+    """Health check endpoint."""
+    return {"status": "ok", "version": "1.0.0"}
