@@ -7,6 +7,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
+    app_name: str = "StudySense AI"
     gemini_api_key: str = ""
     gemini_text_model: str = "gemini-2.0-flash"
     gemini_vision_model: str = "gemini-2.0-flash"
