@@ -47,7 +47,7 @@ function Dashboard() {
         {cards.map((c) => (
           <Link key={c.k} to={c.to} aria-label={c.label} className="rounded-lg border bg-white p-4 hover:shadow-sm">
             <div className="text-xs uppercase text-slate-500">{c.label}</div>
-            <div className="text-3xl font-bold mt-1">{stats?.[c.k] ?? "—"}</div>
+            <div className="text-3xl font-bold mt-1" aria-live="polite">{stats?.[c.k] ?? "—"}</div>
           </Link>
         ))}
       </div>
