@@ -18,6 +18,7 @@ class Settings(BaseSettings):
 
     data_dir: str = "./data"
     max_workers: int = 4
+    log_level: str = "INFO"
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 
