@@ -37,7 +37,7 @@ function ChatPage() {
     <AppShell>
       <h1 className="text-2xl font-bold">Tutor Chat</h1>
       <div className="mt-2 text-sm text-slate-600">Answers are grounded in your uploaded material. Citations + confidence shown for every reply.</div>
-      <div className="mt-3"><input value={subject} onChange={(e) => setSubject(e.target.value)} placeholder="Restrict to subject (optional)" className="border rounded px-3 py-2 text-sm w-64" /></div>
+      <div className="mt-3"><input value={subject} onChange={(e) => setSubject(e.target.value)} placeholder="Restrict to subject (optional)" aria-label="Filter by subject" className="border rounded px-3 py-2 text-sm w-64" /></div>
 
       <div className="mt-4 bg-white border rounded-lg p-4 space-y-3 min-h-[300px]">
         {msgs.length === 0 && <div className="text-slate-500 text-sm">Ask anything about your uploaded material.</div>}
