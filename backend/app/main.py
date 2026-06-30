@@ -35,7 +35,7 @@ app.add_middleware(
 @app.get("/")
 def root():
     return {
-        "name": "StudySmart API",
+        "name": "StudySense AI API",
         "ok": True,
         "ai_enabled": settings.has_key,
         "note": None if settings.has_key else "Paste GEMINI_API_KEY into backend/.env to enable AI features.",
