@@ -9,8 +9,74 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UploadRouteImport } from './routes/upload'
+import { Route as TopicsRouteImport } from './routes/topics'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as RevisionRouteImport } from './routes/revision'
+import { Route as QuizRouteImport } from './routes/quiz'
+import { Route as PredictRouteImport } from './routes/predict'
+import { Route as PlannerRouteImport } from './routes/planner'
+import { Route as GraphRouteImport } from './routes/graph'
+import { Route as DocumentsRouteImport } from './routes/documents'
+import { Route as ChatRouteImport } from './routes/chat'
+import { Route as AgentsRouteImport } from './routes/agents'
 import { Route as IndexRouteImport } from './routes/index'
 
+const UploadRoute = UploadRouteImport.update({
+  id: '/upload',
+  path: '/upload',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TopicsRoute = TopicsRouteImport.update({
+  id: '/topics',
+  path: '/topics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RevisionRoute = RevisionRouteImport.update({
+  id: '/revision',
+  path: '/revision',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuizRoute = QuizRouteImport.update({
+  id: '/quiz',
+  path: '/quiz',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PredictRoute = PredictRouteImport.update({
+  id: '/predict',
+  path: '/predict',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlannerRoute = PlannerRouteImport.update({
+  id: '/planner',
+  path: '/planner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GraphRoute = GraphRouteImport.update({
+  id: '/graph',
+  path: '/graph',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DocumentsRoute = DocumentsRouteImport.update({
+  id: '/documents',
+  path: '/documents',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChatRoute = ChatRouteImport.update({
+  id: '/chat',
+  path: '/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgentsRoute = AgentsRouteImport.update({
+  id: '/agents',
+  path: '/agents',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +85,186 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/agents': typeof AgentsRoute
+  '/chat': typeof ChatRoute
+  '/documents': typeof DocumentsRoute
+  '/graph': typeof GraphRoute
+  '/planner': typeof PlannerRoute
+  '/predict': typeof PredictRoute
+  '/quiz': typeof QuizRoute
+  '/revision': typeof RevisionRoute
+  '/settings': typeof SettingsRoute
+  '/topics': typeof TopicsRoute
+  '/upload': typeof UploadRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/agents': typeof AgentsRoute
+  '/chat': typeof ChatRoute
+  '/documents': typeof DocumentsRoute
+  '/graph': typeof GraphRoute
+  '/planner': typeof PlannerRoute
+  '/predict': typeof PredictRoute
+  '/quiz': typeof QuizRoute
+  '/revision': typeof RevisionRoute
+  '/settings': typeof SettingsRoute
+  '/topics': typeof TopicsRoute
+  '/upload': typeof UploadRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/agents': typeof AgentsRoute
+  '/chat': typeof ChatRoute
+  '/documents': typeof DocumentsRoute
+  '/graph': typeof GraphRoute
+  '/planner': typeof PlannerRoute
+  '/predict': typeof PredictRoute
+  '/quiz': typeof QuizRoute
+  '/revision': typeof RevisionRoute
+  '/settings': typeof SettingsRoute
+  '/topics': typeof TopicsRoute
+  '/upload': typeof UploadRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/agents'
+    | '/chat'
+    | '/documents'
+    | '/graph'
+    | '/planner'
+    | '/predict'
+    | '/quiz'
+    | '/revision'
+    | '/settings'
+    | '/topics'
+    | '/upload'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/agents'
+    | '/chat'
+    | '/documents'
+    | '/graph'
+    | '/planner'
+    | '/predict'
+    | '/quiz'
+    | '/revision'
+    | '/settings'
+    | '/topics'
+    | '/upload'
+  id:
+    | '__root__'
+    | '/'
+    | '/agents'
+    | '/chat'
+    | '/documents'
+    | '/graph'
+    | '/planner'
+    | '/predict'
+    | '/quiz'
+    | '/revision'
+    | '/settings'
+    | '/topics'
+    | '/upload'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AgentsRoute: typeof AgentsRoute
+  ChatRoute: typeof ChatRoute
+  DocumentsRoute: typeof DocumentsRoute
+  GraphRoute: typeof GraphRoute
+  PlannerRoute: typeof PlannerRoute
+  PredictRoute: typeof PredictRoute
+  QuizRoute: typeof QuizRoute
+  RevisionRoute: typeof RevisionRoute
+  SettingsRoute: typeof SettingsRoute
+  TopicsRoute: typeof TopicsRoute
+  UploadRoute: typeof UploadRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/upload': {
+      id: '/upload'
+      path: '/upload'
+      fullPath: '/upload'
+      preLoaderRoute: typeof UploadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/topics': {
+      id: '/topics'
+      path: '/topics'
+      fullPath: '/topics'
+      preLoaderRoute: typeof TopicsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/revision': {
+      id: '/revision'
+      path: '/revision'
+      fullPath: '/revision'
+      preLoaderRoute: typeof RevisionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quiz': {
+      id: '/quiz'
+      path: '/quiz'
+      fullPath: '/quiz'
+      preLoaderRoute: typeof QuizRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/predict': {
+      id: '/predict'
+      path: '/predict'
+      fullPath: '/predict'
+      preLoaderRoute: typeof PredictRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/planner': {
+      id: '/planner'
+      path: '/planner'
+      fullPath: '/planner'
+      preLoaderRoute: typeof PlannerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/graph': {
+      id: '/graph'
+      path: '/graph'
+      fullPath: '/graph'
+      preLoaderRoute: typeof GraphRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/documents': {
+      id: '/documents'
+      path: '/documents'
+      fullPath: '/documents'
+      preLoaderRoute: typeof DocumentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chat': {
+      id: '/chat'
+      path: '/chat'
+      fullPath: '/chat'
+      preLoaderRoute: typeof ChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agents': {
+      id: '/agents'
+      path: '/agents'
+      fullPath: '/agents'
+      preLoaderRoute: typeof AgentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +277,18 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AgentsRoute: AgentsRoute,
+  ChatRoute: ChatRoute,
+  DocumentsRoute: DocumentsRoute,
+  GraphRoute: GraphRoute,
+  PlannerRoute: PlannerRoute,
+  PredictRoute: PredictRoute,
+  QuizRoute: QuizRoute,
+  RevisionRoute: RevisionRoute,
+  SettingsRoute: SettingsRoute,
+  TopicsRoute: TopicsRoute,
+  UploadRoute: UploadRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
