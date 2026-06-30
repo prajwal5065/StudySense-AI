@@ -1,0 +1,22 @@
+{
+  "name": "StudySense AI",
+  "version": "1.0.0",
+  "description": "Local AI-powered study assistant with document ingestion, quiz generation, exam prediction, and RAG-powered tutor chat.",
+  "license": "MIT",
+  "stack": {
+    "frontend": "React + TanStack Router + Tailwind CSS (Vite/Bun)",
+    "backend": "FastAPI + SQLite",
+    "ai": "Google Gemini (text, vision, embeddings)"
+  },
+  "features": [
+    "Document ingestion (PDF, DOCX, image, TXT)",
+    "Topic extraction and importance scoring",
+    "Previous year question (PYQ) analysis",
+    "Formula extraction",
+    "Exam prediction",
+    "Quiz generation with scoring",
+    "Adaptive study planner",
+    "RAG-powered tutor chat with citations",
+    "Knowledge graph visualization"
+  ]
+}
