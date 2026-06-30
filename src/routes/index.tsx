@@ -6,7 +6,7 @@ import { api } from "@/lib/api";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "StudySmart — AI study platform" },
+      { title: "Dashboard — StudySense AI" },
       { name: "description", content: "Local AI study platform: ingest syllabus + PYQs, get predicted papers, quizzes, planners, and tutor chat." },
     ],
   }),
