@@ -1,5 +1,10 @@
-"""Thin Gemini client. If GEMINI_API_KEY is blank, every call raises a
-HTTPException(503) so the UI can render a friendly banner — nothing crashes."""
+"""Thin Gemini client.
+
+If GEMINI_API_KEY is blank, every call raises HTTPException(503)
+so the UI can render a friendly error banner — nothing crashes.
+
+Callers should implement exponential back-off for 429 rate-limit responses.
+"""
 from __future__ import annotations
 
 import json
