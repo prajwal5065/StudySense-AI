@@ -17,6 +17,7 @@ class Settings(BaseSettings):
     cors_origins: str = "http://localhost:8080,http://localhost:5173,http://localhost:3000"
 
     data_dir: str = "./data"
+    max_workers: int = 4
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 
