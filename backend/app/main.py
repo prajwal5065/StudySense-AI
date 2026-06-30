@@ -17,7 +17,7 @@ from .routers import (
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     get_conn()  # run migrations
-    q.start_workers(2)
+    q.start_workers(settings.max_workers)
     yield
 
 
