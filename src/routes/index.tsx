@@ -40,7 +40,7 @@ function Dashboard() {
     <AppShell>
       <h1 className="text-2xl font-bold">Dashboard</h1>
       <p className="text-slate-600 mt-1">
-        Welcome. Upload your syllabus and previous-year papers to unlock predictions, quizzes, and a personalized planner.
+        Welcome to StudySense AI! Upload your syllabus and previous-year papers to unlock predictions, quizzes, and a personalized planner.
       </p>
       {err && <div className="mt-4 p-3 rounded bg-red-50 border border-red-200 text-red-700">{err}</div>}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
