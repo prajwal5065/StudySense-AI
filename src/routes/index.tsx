@@ -45,7 +45,7 @@ function Dashboard() {
       {err && <div className="mt-4 p-3 rounded bg-red-50 border border-red-200 text-red-700">{err}</div>}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
         {cards.map((c) => (
-          <Link key={c.k} to={c.to} className="rounded-lg border bg-white p-4 hover:shadow-sm">
+          <Link key={c.k} to={c.to} aria-label={c.label} className="rounded-lg border bg-white p-4 hover:shadow-sm">
             <div className="text-xs uppercase text-slate-500">{c.label}</div>
             <div className="text-3xl font-bold mt-1">{stats?.[c.k] ?? "—"}</div>
           </Link>
