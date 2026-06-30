@@ -12,6 +12,7 @@ class Settings(BaseSettings):
     gemini_text_model: str = "gemini-2.0-flash"
     gemini_vision_model: str = "gemini-2.0-flash"
     gemini_embed_model: str = "text-embedding-004"
+    gemini_temperature: float = 0.3
 
     host: str = "0.0.0.0"
     port: int = 8000
