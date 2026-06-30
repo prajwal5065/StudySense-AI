@@ -52,3 +52,9 @@ for r in (documents.router, graph.router, topics.router, questions.router, formu
 def health() -> dict:
     """Health check endpoint."""
     return {"status": "ok", "version": "1.0.0"}
+
+
+@app.get("/version")
+def version() -> dict:
+    """Return API version info."""
+    return {"version": "1.0.0", "app": settings.app_name}
