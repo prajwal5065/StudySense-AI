@@ -1,6 +1,6 @@
 """Document upload / list / delete + ingestion trigger."""
 from __future__ import annotations
-import hashlib, shutil, uuid
+import hashlib, re, shutil, uuid
 from pathlib import Path
 from fastapi import APIRouter, File, Form, HTTPException, UploadFile
 from ..config import settings
@@ -9,6 +9,21 @@ from ..workers import queue as q
 from ..workers.jobs import ingest_document
 
 router = APIRouter(prefix="/documents", tags=["documents"])
+
+
+def _safe_filename(name: str | None, fallback: str = "upload.bin") -> str:
+    """Strip path components and disallowed characters from a client-supplied filename.
+
+    Prevents path traversal (e.g. "../../etc/passwd") or absolute paths from
+    escaping the per-document upload directory. Only the basename survives,
+    and it's limited to a safe character set. The original filename is still
+    stored as-is in the `documents.filename` DB column for display purposes.
+    """
+    if not name:
+        return fallback
+    name = Path(name).name  # drop any directory components (../, /, \)
+    name = re.sub(r"[^A-Za-z0-9._-]", "_", name).strip("._")
+    return name or fallback
 
 
 @router.get("")
@@ -30,7 +45,7 @@ async def upload(
     doc_id = str(uuid.uuid4())
     dest_dir = Path(settings.data_path) / "uploads" / doc_id
     dest_dir.mkdir(parents=True, exist_ok=True)
-    dest = dest_dir / (file.filename or "upload.bin")
+    dest = dest_dir / _safe_filename(file.filename)
     sha = hashlib.sha256()
     with dest.open("wb") as f:
         while True:
